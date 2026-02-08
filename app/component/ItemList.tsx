@@ -1,0 +1,19 @@
+import { FlatList, Text, View } from "react-native";
+
+type ItemListProps = {
+    items: { id: string; title: string, pcs: number }[];
+};
+
+export const ItemList = ({ items }: ItemListProps) => {
+    return (
+        <FlatList
+            data={items}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+                <View className="p-4 border-b border-gray-300">
+                    <Text className="text-lg text-gray-500">{item.title} - {item.pcs}</Text>
+                </View>
+            )}
+        />
+    ); 
+};
